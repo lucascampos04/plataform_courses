@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { authContextGoogle } from "../../Context/AuthGoogle"
 
-export const Home = () => {
+export const Central = () => {
     const {user, signOut} = useContext(authContextGoogle)
     
     const userName = user && user.displayName ? user.displayName : "Nome desconhecido"
