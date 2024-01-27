@@ -1,11 +1,7 @@
-import { AuthContextGoogle } from "./Context/AuthGoogle"
-import { AppRotas } from "./Router/router"
+import { Routers } from "./Routers/router"
 
 export const App = () => {
   return (
-    <AuthContextGoogle>
-        <AppRotas/>
-    </AuthContextGoogle>
-    
+    <Routers/>
   )
 }
