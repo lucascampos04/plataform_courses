@@ -10,7 +10,7 @@ export const Header = ({ appName }) => {
     };
 
     const handleHomeClick = () => {
-      navigate('/home')
+      navigate('/')
     }
   return (
     <header className="bg-dark text-white p-3">
