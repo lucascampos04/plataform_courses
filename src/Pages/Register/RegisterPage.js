@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { AppConfigFirebase } from "../../Service/Firebase/firebaseConfig";
+import { Link, Navigate } from "react-router-dom";
 
 export const RegisterPages = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ export const RegisterPages = () => {
         password,
       });
       console.log("Cadastrado com sucesso", user.id);
+      window.location.href = "/login"
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
     }

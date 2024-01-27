@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import "../../style/Login/LoginStyle.css"
 import { authContextGoogle } from "../../Context/AuthGoogle"
 import { Navigate } from "react-router"
+import { Link } from "react-router-dom"
 
 export const LoginPage = () => {
     const {signInGoogle, signed} = useContext(authContextGoogle)
@@ -34,7 +35,7 @@ export const LoginPage = () => {
               className="form-group form-control"
             />
           </div>
-    
+          <Link to="/register">Criar conta</Link>
           <div className="form-row">
             <button className="form-row btn btn-success modal-button-login">
               Login
