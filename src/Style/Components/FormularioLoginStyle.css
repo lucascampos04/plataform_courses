@@ -1,0 +1,91 @@
+.container-fluid {
+    height: 100vh;
+    background-color: #e6f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container-form-login {
+    display: flex;
+    border: 1px solid white;
+    width: 50%;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .modal-container-left {
+    display: flex;
+    width: 30%;
+    border: 1px solid 007bff;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .modal-container-left img{
+    width: 100%;
+    height: auto;
+  }
+  
+  .modal-container-right {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    border: 1px solid 007bff;
+  }
+  
+  .modal-container-right h2 {
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-container-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .modal-container-right form input {
+    width: 140%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #007bff;
+    outline: none;
+    background: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal-container-right form input:focus {
+    border-color: #0056b3;
+  }
+  
+  .modal-container-right form label {
+    color: #333;
+  }
+  
+  .modal-container-right form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-container-right form button:hover {
+    background-color: #0056b3;
+  }
+
+  .loginInOutersForms img{
+    cursor: pointer;
+  }
