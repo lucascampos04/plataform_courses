@@ -8,11 +8,15 @@ export const Header = ({ appName }) => {
     const handleLoginClick = () => {
         navigate('/login');
     };
+
+    const handleHomeClick = () => {
+      navigate('/home')
+    }
   return (
     <header className="bg-dark text-white p-3">
       <div className="container">
         <div className="logo">
-          <span className="h3">{appName}</span>
+          <span className="h3" onClick={handleHomeClick}>{appName}</span>
         </div>
         <nav className="navbar navbar-expand-lg navbar-dark">
           <ul className="navbar-nav">
