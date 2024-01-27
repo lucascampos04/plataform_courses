@@ -1,0 +1,33 @@
+.container-fluid{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.container-fluid .login-modal-container{
+    height: 70vh;
+    width: 40vh;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+input{
+    width: 200px;
+}
+
+.modal-button-login{
+    width: 100px;
+    font-weight: bold;
+    height: 40px;
+    font-size: 20px;
+    padding: 0%;
+}
+
+.modal-img-google{
+    cursor: pointer;
+}
