@@ -1,14 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Navigate } from "react-router-dom";
-import { firebaseConfig } from "../../Service/Firebase/FirebaseConfig"
+import { AppConfigFirebase } from "../../Service/Firebase/FirebaseConfig"
 
 const provider = new GoogleAuthProvider();
 
 export const authContexteGoogle = createContext({})
 
 export const AuthContextGoogle = ({children}) => {
-    const auth = getAuth(firebaseConfig)
+    const auth = getAuth(AppConfigFirebase)
     const [user, setUser] = useState(null)
 
     useEffect(() => {
