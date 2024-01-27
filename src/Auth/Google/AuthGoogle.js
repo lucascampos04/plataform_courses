@@ -1,14 +1,13 @@
-import { createContext, useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { AppConfigFirebase } from "../Service/Firebase/firebaseConfig"
+import { useEffect, useState } from "react";
+import { firebaseConfig } from "../../Service/Firebase/FirebaseConfig"
+import {GoogleAuthProvider} from "firebase/auth"
 import { Navigate } from "react-router";
+
 
 const provider = new GoogleAuthProvider();
 
-export const authContextGoogle = createContext({})
-
-export const AuthContextGoogle = ({ children }) => {
-    const auth = getAuth(AppConfigFirebase)
+export const AuthContextGoogle = ({children}) => {
+    const auth = getAuth(firebaseConfig)
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -16,10 +15,9 @@ export const AuthContextGoogle = ({ children }) => {
             const sessionToken = sessionStorage.getItem("@AuthFirebase.token")
             const sessionUser = sessionStorage.getItem("@AuthFirebase.user")
 
-            if (sessionToken && sessionUser) {
+            if (sessionToken && sessionUser){
                 let userObject = JSON.parse(sessionUser)
                 setUser(userObject)
-                console.log("Logado")
             }
         }
         loadStoreAuth()
@@ -45,12 +43,15 @@ export const AuthContextGoogle = ({ children }) => {
     function signOut() {
         sessionStorage.clear()
         setUser(null)
-        return (<Navigate to="/login" />)
+        return (<Navigate to="/login"/>)
     }
 
     return (
-        <authContextGoogle.Provider
-            value={{ signInGoogle, signed: !!user, user, signOut }}
-        >{children}</authContextGoogle.Provider>
+        <AuthContextGoogle.provider
+            value={{
+                signInGoogle, signed: !!user, user, signOut
+            }}
+
+        >{children}</AuthContextGoogle.provider>
     )
 }
