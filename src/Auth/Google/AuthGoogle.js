@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import { firebaseConfig } from "../../Service/Firebase/FirebaseConfig"
-import {GoogleAuthProvider} from "firebase/auth"
-import { Navigate } from "react-router";
-
+import { createContext, useEffect, useState } from "react";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Navigate } from "react-router-dom";
+import { AppConfigFirebase } from "../../Service/Firebase/FirebaseConfig"
 
 const provider = new GoogleAuthProvider();
 
+export const authContexteGoogle = createContext({})
+
 export const AuthContextGoogle = ({children}) => {
-    const auth = getAuth(firebaseConfig)
+    const auth = getAuth(AppConfigFirebase)
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -47,11 +48,11 @@ export const AuthContextGoogle = ({children}) => {
     }
 
     return (
-        <AuthContextGoogle.provider
+        <authContexteGoogle.Provider
             value={{
                 signInGoogle, signed: !!user, user, signOut
             }}
 
-        >{children}</AuthContextGoogle.provider>
+        >{children}</authContexteGoogle.Provider>
     )
 }

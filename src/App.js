@@ -1,7 +1,11 @@
+import { AuthContextGoogle } from "./Auth/Google/AuthGoogle"
 import { Routers } from "./Routers/router"
 
 export const App = () => {
   return (
-    <Routers/>
+    <AuthContextGoogle>
+      <Routers/>
+    </AuthContextGoogle>
+    
   )
 }
