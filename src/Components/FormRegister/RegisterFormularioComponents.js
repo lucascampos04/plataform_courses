@@ -1,20 +1,22 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { register } from "../../Auth/EmailAndPassword/AuthDefault";
+import { Navigate, useNavigate } from "react-router"
 
 export const RegisterComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleCadastro = async () => {
-    try {
-      const auth = getAuth();
-      await createUserWithEmailAndPassword(auth, email, password);
-      console.log("Cadastrado com sucesso");
-      window.location.href="/login"
-    } catch (error) {
-      console.error("Erro no cadastro:", error.message);
+  const navigate = useNavigate()
+
+    const handleCadastro= async () => {
+        const loginSuccess = await register(email, password)
+        if (!loginSuccess){
+            navigate('/login')
+        } else {
+            console.log("Erro login")
+        }
     }
-  };
+  
   return (
     <div>
       <h2>Cadastro</h2>
