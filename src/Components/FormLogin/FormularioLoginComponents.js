@@ -4,7 +4,7 @@ import "../../Style/Components/FormularioLoginStyle.css"
 import montanhas from "../../imgs/montanhas.jfif"
 import google from "../../imgs/pesquisa.png"
 import { authContexteGoogle } from "../../Auth/Google/AuthGoogle"
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../Auth/EmailAndPassword/AuthDefault"
 
 
@@ -12,15 +12,17 @@ export const LoginFormularo = () => {
     const {signInGoogle, signed} = useContext(authContexteGoogle)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleLogin = async (e) => {
         e.preventDefault()
+
         try {
-            await login(email, password);
+            await login(email, password, navigate);
             navigate('/central');
         } catch (error) {
-            console.log("Erro no login:", error.message);
+            setError(error.message)
         }
     }
 
@@ -57,11 +59,12 @@ export const LoginFormularo = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group group-buttons">
                         <button onClick={handleLogin}>Login</button>
+                        <Link to="/register" className="link">Criar conta</Link>
                     </div>
                     <div className="loginInOutersForms">
-                        <img src={google} width="50px" onClick={() => signInGoogle()}/>
+                        <img src={google} height="50px" onClick={() => signInGoogle()}/>
                     </div>
                 </form>
                 </div>
