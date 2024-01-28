@@ -23,23 +23,6 @@ export const Header = ({ appName }) => {
           <span className="h3" onClick={handleHomeClick}>{appName}</span>
         </div>
         <nav className="navbar navbar-expand-lg navbar-dark">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Início
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/sobre">
-                Sobre
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contato">
-                Contato
-              </a>
-            </li>
-          </ul>
         </nav>
         <aside>
           <button className="btn-login" onClick={handleLoginClick}>Login</button>
