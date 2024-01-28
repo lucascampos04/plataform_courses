@@ -4,8 +4,9 @@ import "../../Style/Components/FormularioLoginStyle.css"
 import montanhas from "../../imgs/montanhas.jfif"
 import google from "../../imgs/pesquisa.png"
 import { authContexteGoogle } from "../../Auth/Google/AuthGoogle"
-import { Navigate, useNavigate } from "react-router"
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Navigate, useNavigate } from "react-router-dom";
+import { login } from "../../Auth/EmailAndPassword/AuthDefault"
+
 
 export const LoginFormularo = () => {
     const {signInGoogle, signed} = useContext(authContexteGoogle)
@@ -14,15 +15,16 @@ export const LoginFormularo = () => {
     const navigate = useNavigate()
 
     const handleLogin = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         try {
-          const auth = getAuth();
-          await signInWithEmailAndPassword(auth, email, password);
-          navigate('/central')
+            await login(email, password);
+            navigate('/central');
         } catch (error) {
-          console.error('Erro no login:', error.message);
+            console.log("Erro no login:", error.message);
         }
-      };
+    }
+
+   
     if (signed) {
         return null
     }
