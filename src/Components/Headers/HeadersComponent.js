@@ -9,6 +9,10 @@ export const Header = ({ appName }) => {
         navigate('/login');
     };
 
+    const handleRegisterClick = () => {
+      navigate('/register');
+  };
+
     const handleHomeClick = () => {
       navigate('/')
     }
@@ -39,7 +43,7 @@ export const Header = ({ appName }) => {
         </nav>
         <aside>
           <button className="btn-login" onClick={handleLoginClick}>Login</button>
-          <button className="btn-register">Register</button>
+          <button className="btn-register" onClick={handleRegisterClick}>Register</button>
         </aside>
       </div>
     </header>
